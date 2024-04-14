@@ -1,4 +1,4 @@
-package homework;
+package ru.otus.java.pro.homework02;
 
 import java.util.Objects;
 

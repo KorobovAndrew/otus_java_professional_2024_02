@@ -1,7 +1,8 @@
-package homework.test;
+package ru.otus.java.pro.homework02.test;
 
-import homework.BankAccount;
-import homework.annotations.*;
+import ru.otus.java.pro.homework02.BankAccount;
+import ru.otus.java.pro.homework02.annotation.*;
+import ru.otus.java.pro.homework02.exception.TestFailedException;
 
 public class BankAccountTest {
     private static Integer turnoverOfFunds;
@@ -31,18 +32,19 @@ public class BankAccountTest {
         var actual = bankAccount.getAccountBalance();
         var expected = 1500;
         if (expected != actual)
-            throw new Exception();
+            throw new TestFailedException();
     }
 
     @Test(priority = 10)
-    public void incorrectAddMoneyTest() throws Exception {
+    @After
+    public void incorrectAddMoneyTest() throws TestFailedException {
         System.out.println("Running 1st test");
         bankAccount.addMoney(500);
         turnoverOfFunds += 500;
         var actual = bankAccount.getAccountBalance();
         var expected = 5;
         if (expected != actual)
-            throw new Exception();
+            throw new TestFailedException();
     }
 
     @Test(priority = 1)
@@ -51,12 +53,12 @@ public class BankAccountTest {
         var expected = new BankAccount(50000, "RUB");
         bankAccount.convertToRub(50);
         if (!expected.equals(bankAccount))
-            throw new Exception();
+            throw new TestFailedException();
     }
 
     @After
     public void after() throws Exception {
         if (bankAccount == null)
-            throw new Exception();
+            throw new TestFailedException();
     }
 }
