@@ -4,6 +4,8 @@ import ru.otus.java.pro.homework02.BankAccount;
 import ru.otus.java.pro.homework02.annotation.*;
 import ru.otus.java.pro.homework02.exception.TestFailedException;
 
+import static ru.otus.java.pro.homework02.annotation.TestPriority.*;
+
 public class BankAccountTest {
     private static Integer turnoverOfFunds;
 
@@ -24,7 +26,7 @@ public class BankAccountTest {
         bankAccount = new BankAccount(1000, "EUR");
     }
 
-    @Test(priority = 5)
+    @Test
     public void correctAddMoneyTest() throws Exception {
         System.out.println("Running 2nd test");
         bankAccount.addMoney(500);
@@ -35,8 +37,7 @@ public class BankAccountTest {
             throw new TestFailedException();
     }
 
-    @Test(priority = 10)
-    @After
+    @Test(priority = TEN)
     public void incorrectAddMoneyTest() throws TestFailedException {
         System.out.println("Running 1st test");
         bankAccount.addMoney(500);
@@ -47,7 +48,7 @@ public class BankAccountTest {
             throw new TestFailedException();
     }
 
-    @Test(priority = 1)
+    @Test(priority = ONE)
     public void correctConversionTest() throws Exception {
         System.out.println("Running 3rd test");
         var expected = new BankAccount(50000, "RUB");

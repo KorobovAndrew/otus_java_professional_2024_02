@@ -20,7 +20,7 @@ public class Launcher {
         runSuitesMethods(annotatedMethods, BeforeSuite.class);
 
         annotatedMethods.get(Test.class).stream()
-                .sorted(Collections.reverseOrder(Comparator.comparingInt(p1 -> p1.getAnnotation(Test.class).priority())))
+                .sorted(Collections.reverseOrder(Comparator.comparingInt(p1 -> p1.getAnnotation(Test.class).priority().getValue())))
                 .forEach(testMethod -> {
                     try {
                         var object = constructor.newInstance();
