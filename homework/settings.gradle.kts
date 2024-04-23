@@ -1,7 +1,6 @@
 rootProject.name = "homework"
 
 include("hw02-annotations")
-include("hw03-stream-api")
 
 pluginManagement {
     val dependencyManagement: String by settings
