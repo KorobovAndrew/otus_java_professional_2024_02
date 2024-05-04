@@ -2,6 +2,7 @@ rootProject.name = "homework"
 
 include("hw02-annotations")
 include("hw03-stream-api")
+include("hw04-multithreading")
 
 pluginManagement {
     val dependencyManagement: String by settings
