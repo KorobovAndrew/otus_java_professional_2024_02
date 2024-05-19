@@ -1,11 +1,11 @@
 package ru.otus.java.pro.homework05.iterator;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import lombok.Getter;
+
+import java.util.*;
 import java.util.stream.Stream;
 
+@Getter
 public class Box implements Iterable<String> {
     public final List<String> firstList;
     public final List<String> secondList;
@@ -34,7 +34,12 @@ public class Box implements Iterable<String> {
 
             @Override
             public String next() {
-                return items.get(currentIndex++);
+                if (hasNext()) {
+                    return items.get(currentIndex++);
+                } else {
+                    throw new NoSuchElementException();
+                }
+
             }
         };
     }
