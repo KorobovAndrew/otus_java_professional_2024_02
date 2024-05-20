@@ -1,5 +1,10 @@
 package ru.otus.java.pro.homework05.builder;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Product {
     private final Long id;
     private final String title;
