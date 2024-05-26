@@ -5,6 +5,16 @@ plugins {
     id ("com.github.johnrengelman.shadow")
 }
 
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly("org.projectlombok:lombok:1.18.20")
+    annotationProcessor("org.projectlombok:lombok:1.18.20")
+}
+
 tasks {
     named<ShadowJar>("shadowJar") {
         archiveBaseName.set("Hw05-builder-iterator-patterns")
