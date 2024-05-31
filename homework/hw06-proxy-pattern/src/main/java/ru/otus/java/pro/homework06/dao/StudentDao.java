@@ -21,8 +21,7 @@ public class StudentDao implements Dao<Student> {
     @Override
     public void save(Student student) {
         String studentSaveQuery = "INSERT INTO students VALUES (?, ?, ?)";
-        try {
-            PreparedStatement statement = connection.prepareStatement(studentSaveQuery);
+        try (PreparedStatement statement = connection.prepareStatement(studentSaveQuery)) {
             statement.setInt(1, student.getId());
             statement.setString(2, student.getName());
             statement.setInt(3, student.getAge());
@@ -50,12 +49,12 @@ public class StudentDao implements Dao<Student> {
                 studentDao.connection.close();
             }
         }
-    }
 
-    private static Connection getNewConnection() throws SQLException {
-        String url = "jdbc:h2:mem:mydb";
-        String user = "sa";
-        String passwd = "pass";
-        return DriverManager.getConnection(url, user, passwd);
+        private static Connection getNewConnection() throws SQLException {
+            String url = "jdbc:h2:mem:mydb";
+            String user = "sa";
+            String passwd = "pass";
+            return DriverManager.getConnection(url, user, passwd);
+        }
     }
 }
