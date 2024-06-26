@@ -6,6 +6,7 @@ include("hw04-multithreading")
 include("hw05-builder-iterator-patterns")
 include("hw06-proxy-pattern")
 include("hw07-database-interaction")
+include("hw10-spring-context")
 
 pluginManagement {
     val dependencyManagement: String by settings

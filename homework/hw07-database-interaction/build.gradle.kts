@@ -22,7 +22,7 @@ tasks {
         archiveVersion.set("0.1")
         archiveClassifier.set("")
         manifest {
-            attributes(mapOf("Main-Class" to "ru.otus.java.pro.homework05.Program"))
+            attributes(mapOf("Main-Class" to "ru.otus.java.pro.homework07.Application"))
         }
     }
 
