@@ -18,8 +18,6 @@ public class Application {
         Cart cart = context.getBean(Cart.class);
 
         try (Scanner scanner = new Scanner(System.in)) {
-
-
             System.out.println("Доступные комманды: new cart; add, delete; exit");
 
             boolean isAppRun = true;
