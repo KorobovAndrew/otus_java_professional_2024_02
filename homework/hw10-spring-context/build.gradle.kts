@@ -19,7 +19,7 @@ dependencies {
 
 tasks {
     named<ShadowJar>("shadowJar") {
-        archiveBaseName.set("Hw05-builder-iterator-patterns")
+        archiveBaseName.set("Hw10-spring-context")
         archiveVersion.set("0.1")
         archiveClassifier.set("")
         manifest {

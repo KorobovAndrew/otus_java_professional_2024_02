@@ -18,7 +18,7 @@ dependencies {
 
 tasks {
     named<ShadowJar>("shadowJar") {
-        archiveBaseName.set("Hw05-builder-iterator-patterns")
+        archiveBaseName.set("Hw07-database-interaction")
         archiveVersion.set("0.1")
         archiveClassifier.set("")
         manifest {
