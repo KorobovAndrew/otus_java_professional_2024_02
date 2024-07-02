@@ -18,7 +18,7 @@ public class Cart {
 
     public Cart(ProductRepository productRepository) {
         this.productRepository = productRepository;
-        this.products = new ArrayList<>();;
+        this.products = new ArrayList<>();
     }
 
     public Product addProductById(Long id) throws NoSuchElementException {

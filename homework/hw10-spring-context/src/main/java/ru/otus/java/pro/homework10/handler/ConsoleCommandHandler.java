@@ -8,15 +8,11 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 @Component
-public class consoleCommandHandler {
-
-    private final Cart cart;
+public class ConsoleCommandHandler {
 
     Map<String, Consumer<Long>> commands;
 
-    public consoleCommandHandler(Cart cart) {
-        this.cart = cart;
-
+    public ConsoleCommandHandler(Cart cart) {
         commands = new HashMap<>();
         commands.put("cart/add?id=", id -> System.out.println(cart.addProductById(id)));
         commands.put("cart/delete?id=", id -> System.out.println(cart.deleteProductById(id)));

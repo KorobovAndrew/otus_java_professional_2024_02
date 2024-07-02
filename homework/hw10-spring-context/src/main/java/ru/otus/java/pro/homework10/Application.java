@@ -17,39 +17,45 @@ public class Application {
         ProductRepository productRepository = context.getBean(ProductRepository.class);
         Cart cart = context.getBean(Cart.class);
 
-        Scanner scanner = new Scanner(System.in);
+        try (Scanner scanner = new Scanner(System.in)) {
 
-        System.out.println("Доступные комманды: new cart; add, delete; exit");
 
-        boolean isAppRun = true;
-        while (isAppRun) {
-            System.out.print("Введите команду: ");
-            String command = scanner.nextLine();
-            switch (command) {
-                case ("new cart"):
-                    cart = context.getBean(Cart.class);
-                    break;
-                case ("add"):
-                    System.out.print("Введите id: ");
-                    try {
-                        Product addedProduct = cart.addProductById(scanner.nextLong());
-                        System.out.printf("Продукт %s успешно добавлен в корзину\n", addedProduct.getTitle());
-                    } catch (NoSuchElementException e) {
-                        System.out.println(e.getMessage());
-                    }
-                    break;
-                case ("delete"):
-                    System.out.print("Введите id: ");
-                    try {
-                        Product deletedProduct = cart.deleteProductById(scanner.nextLong());
-                        System.out.printf("Продукт %s успешно удален из корзины\n", deletedProduct.getTitle());
-                    } catch (NoSuchElementException e) {
-                        System.out.println(e.getMessage());
-                    }
-                    break;
-                case ("exit"):
-                    isAppRun = false;
-                    break;
+            System.out.println("Доступные комманды: new cart; add, delete; exit");
+
+            boolean isAppRun = true;
+            while (isAppRun) {
+                System.out.print("Введите команду: ");
+                String command = scanner.nextLine();
+                switch (command) {
+                    case ("new cart"):
+                        cart = context.getBean(Cart.class);
+                        break;
+                    case ("add"):
+                        System.out.print("Введите id: ");
+                        try {
+                            Product addedProduct = cart.addProductById(scanner.nextLong());
+                            scanner.nextLine();
+                            System.out.printf("Продукт %s успешно добавлен в корзину\n", addedProduct.getTitle());
+                        } catch (NoSuchElementException e) {
+                            System.out.println(e.getMessage());
+                        }
+                        break;
+                    case ("delete"):
+                        System.out.print("Введите id: ");
+                        try {
+                            Product deletedProduct = cart.deleteProductById(scanner.nextLong());
+                            scanner.nextLine();
+                            System.out.printf("Продукт %s успешно удален из корзины\n", deletedProduct.getTitle());
+                        } catch (NoSuchElementException e) {
+                            System.out.println(e.getMessage());
+                        }
+                        break;
+                    case ("exit"):
+                        isAppRun = false;
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
