@@ -10,11 +10,10 @@ import java.util.NoSuchElementException;
 
 @Component
 public class ProductInMemoryRepository implements ProductRepository {
-    private List<Product> products;
+    private final List<Product> products = new ArrayList<>();
     private static Long nextId;
 
     public ProductInMemoryRepository() {
-        products = new ArrayList<>();
         nextId = 1L;
     }
 
